@@ -1,14 +1,20 @@
 {
   "name": "monaco-code",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.01",
+  "private": false,
+  "main": "dist/monaco-code.umd.min.js",
+  "module": "src/core/index.js",
+  "style": "dist/monaco-code.css",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --inline-vue src/core/index.js",
+    "pack": "npm run lib && npm pack",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "monaco-editor": "^0.23.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -18,8 +24,31 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "monaco-editor-webpack-plugin": "^3.0.0",
     "vue-template-compiler": "^2.6.11"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "monaco-editor",
+    "monaco-editor-vue",
+    "monaco",
+    "monaco vue",
+    "vue online code",
+    "vue online editor"
+  ],
+  "author": {
+    "name": "winyh",
+    "email": "2712192471@qq.com",
+    "url": "https://github.com/winyh/monaco-code.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winyh/monaco-code.git"
+  },
+  "homepage": "https://github.com/winyh/monaco-code#readme",
   "eslintConfig": {
     "root": true,
     "env": {
@@ -38,5 +67,6 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "license": "MIT"
 }
