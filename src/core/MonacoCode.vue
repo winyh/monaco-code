@@ -12,34 +12,34 @@ export default {
     return {
       monacoEditor: '',
       defaultOptions: {
-        theme: '', // 主题
-        value: ['function x() {', '\tconsole.log("winyh!");', '}'].join('\n'), // 默认显示的值
-        language: 'json',
-        folding: true, // 是否折叠
-        foldingHighlight: true, // 折叠等高线
-        foldingStrategy: 'indentation', // 折叠方式  auto | indentation
-        showFoldingControls: 'always', // 是否一直显示折叠 always | mouseover
-        disableLayerHinting: true, // 等宽优化
-        emptySelectionClipboard: false, // 空选择剪切板
-        selectionClipboard: false, // 选择剪切板
-        automaticLayout: true, // 自动布局
-        autoIndent: true, // 自动布局
-        codeLens: false, // 代码镜头
-        scrollBeyondLastLine: false, // 滚动完最后一行后再滚动一屏幕
-        colorDecorators: true, // 颜色装饰器
-        accessibilitySupport: 'off', // 辅助功能支持  "auto" | "off" | "on"
-        selectOnLineNumbers: true, // 显示行号
-        lineNumbers: 'on', // 行号 取值： "on" | "off" | "relative" | "interval" | function
-        lineNumbersMinChars: 5, // 行号最小字符   number
+        theme: '',
+        value: ['function x() {', '\tconsole.log("winyh!");', '}'].join('\n'),
+        language: 'javascript',
+        folding: true,
+        foldingHighlight: true,
+        foldingStrategy: 'indentation',
+        showFoldingControls: 'always',
+        disableLayerHinting: true,
+        emptySelectionClipboard: false,
+        selectionClipboard: false,
+        automaticLayout: true,
+        autoIndent: true,
+        codeLens: false,
+        scrollBeyondLastLine: false,
+        colorDecorators: true,
+        accessibilitySupport: 'off',
+        selectOnLineNumbers: true,
+        lineNumbers: 'on',
+        lineNumbersMinChars: 5,
         enableSplitViewResizing: false,
-        readOnly: true, //是否只读  取值 true | false
+        readOnly: false, //是否只读  取值 true | false
       },
     };
   },
   props: {
     value: {
       type: String,
-      default: '',
+      default: ['function x() {', '\tconsole.log("winyh!");', '}'].join('\n'),
     },
     language: {
       type: String,
