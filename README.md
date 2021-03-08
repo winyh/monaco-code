@@ -35,7 +35,7 @@ cnpm i MonacoCode --save
 
 ### 参数说明
 
-value, language 优先级更高，会覆盖 options 里相同字段
+value, language, theme 这些参数优先级更高，会覆盖 options 里相同字段
 
 | 参数     | 说明   | 类型   | 默认值                                       |
 | -------- | ------ | ------ | -------------------------------------------- |
@@ -44,7 +44,7 @@ value, language 优先级更高，会覆盖 options 里相同字段
 | height   | 初始值 | string |                                              |
 | width    | 初始值 | string |                                              |
 | theme    | 主题   | string | vs \| vs-dark \| hc-black 默认 `vs`          |
-| options  | 配置项 | object |                                              |
+| options  | 配置项 | object | 参考下文                                     |
 
 ### options 参数
 

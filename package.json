@@ -1,6 +1,6 @@
 {
   "name": "monaco-code",
-  "version": "0.0.01",
+  "version": "0.0.1",
   "private": false,
   "main": "lib/monaco-code.umd.min.js",
   "module": "src/core/index.js",
