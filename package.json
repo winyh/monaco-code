@@ -7,10 +7,10 @@
   "style": "lib/monaco-code.css",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --dest build",
+    "build": "vue-cli-service build",
     "lib": "vue-cli-service build --target lib --inline-vue --dest lib src/core/index.js",
     "pack": "npm run build && npm run lib && npm pack",
-    "deploy":"git subtree push --prefix=build origin gh-pages",
+    "deploy":"git subtree push --prefix=dist origin gh-pages",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
