@@ -1,16 +1,16 @@
-import MonacoCode, { monaco } from './MonacoCode';
+import MonacoCodeEditor from './MonacoCodeEditor';
 
 import pjson from '../../package.json';
 
 const install = Vue => {
   if (install.installed) return;
-  Vue.Component(MonacoCode);
+  Vue.component('MonacoCodeEditor', MonacoCodeEditor);
 };
 
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 
-export { install, MonacoCode, monaco };
+export { install, MonacoCodeEditor };
 
-export default { version: pjson.version, MonacoCode, monaco };
+export default { install, version: pjson.version, MonacoCodeEditor };

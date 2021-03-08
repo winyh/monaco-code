@@ -17,19 +17,32 @@
 ### 安装
 
 ```
-cnpm i MonacoCode --save
+cnpm i monaco-code
 ```
 
 ### 使用方法
 
 ```
 <template>
-  <MonacoCode :value="...">
+  <MonacoCodeEditor :value="...">
 </template>
 
 <script>
-  import MonacoCode from "MonacoCode"
+  import MonacoCode from "monaco-code"
   Vue.use(MonacoCode)
+</script>
+```
+
+or
+
+```
+<template>
+  <MonacoCodeEditor :value="...">
+</template>
+
+<script>
+  import { MonacoCodeEditor } from "monaco-code"
+  Vue.component("MonacoCodeEditor", MonacoCodeEditor)
 </script>
 ```
 

@@ -8,13 +8,11 @@
         <option value="hc-black">hc-black</option>
       </select>
     </div>
-    <MonacoCode :value="value" ref="monaco" />
+    <monaco-code-editor :value="value" ref="monaco" />
   </div>
 </template>
 
 <script>
-import MonacoCode from './core/MonacoCode.vue';
-
 export default {
   name: 'App',
   data() {
@@ -22,9 +20,6 @@ export default {
       value: "const name = 'monaco code'",
       language: 'javascript',
     };
-  },
-  components: {
-    MonacoCode,
   },
   methods: {
     themeChange(e) {
