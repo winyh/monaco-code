@@ -48,7 +48,7 @@
     "type": "git",
     "url": "git+https://github.com/winyh/monaco-code.git"
   },
-  "homepage": "https://winyh.github.com/winyh/monaco-code",
+  "homepage": "https://winyh.github.com/monaco-code",
   "eslintConfig": {
     "root": true,
     "env": {
