@@ -1,9 +1,42 @@
 <template>
-  <div ref="code" class="monaco-code"></div>
+  <div ref="code" class="monaco-code" :style="style"></div>
 </template>
 
 <script>
 import * as monaco from 'monaco-editor';
+
+import 'monaco-editor/esm/vs/editor/browser/controller/coreCommands';
+import 'monaco-editor/esm/vs/editor/contrib/find/findController.js';
+
+// javascript依赖包，提供代码语法解析及代码高亮等功能
+import 'monaco-editor/esm/vs/language/css/monaco.contribution.js';
+import 'monaco-editor/esm/vs/language/html/monaco.contribution.js';
+import 'monaco-editor/esm/vs/language/json/monaco.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/javascript/javascript';
+import 'monaco-editor/esm/vs/basic-languages/css/css.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/sql/sql.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/html/html.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/less/less.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/mysql/mysql.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution.js';
+
+self.MonacoEnvironment = {
+  getWorkerUrl: function (moduleId, label) {
+    if (label === 'json') {
+      return './json.worker.js';
+    }
+    if (label === 'css' || label === 'scss' || label === 'less') {
+      return './css.worker.js';
+    }
+    if (label === 'html' || label === 'handlebars' || label === 'razor') {
+      return './html.worker.js';
+    }
+    if (label === 'typescript' || label === 'javascript') {
+      return './ts.worker.js';
+    }
+    return './editor.worker.js';
+  },
+};
 
 export { monaco };
 export default {
@@ -12,9 +45,10 @@ export default {
     return {
       monacoEditor: '',
       defaultOptions: {
-        theme: '',
+        theme: 'vs-dark',
         value: ['function x() {', '\tconsole.log("winyh!");', '}'].join('\n'),
         language: 'javascript',
+        fontSize: 14,
         folding: true,
         foldingHighlight: true,
         foldingStrategy: 'indentation',
@@ -45,6 +79,18 @@ export default {
       type: String,
       default: 'javascript',
     },
+    width: {
+      type: [String, Number],
+      default: '100%',
+    },
+    height: {
+      type: [String, Number],
+      default: '100%',
+    },
+    theme: {
+      type: String,
+      default: 'vs',
+    },
     options: {
       type: Object,
       default() {
@@ -74,7 +120,7 @@ export default {
     },
 
     theme() {
-      this.monacoEditor && monaco.editor.setTheme(this.theme);
+      this.monacoEditor && this.editor.setTheme(this.theme);
     },
 
     style() {
@@ -84,24 +130,43 @@ export default {
         });
     },
   },
+  computed: {
+    style() {
+      let { width, height } = this;
+      let fixedWidth =
+        width.toString().indexOf('%') !== -1 ? width : `${width}px`;
+      let fixedHeight =
+        height.toString().indexOf('%') !== -1 ? height : `${height}px`;
+      if (this.editor) {
+        this.editor.layout({
+          width: fixedWidth.replace('px', ''),
+          height: fixedHeight.replace('px', ''),
+        });
+      }
+      return {
+        width: fixedWidth,
+        height: fixedHeight,
+      };
+    },
+  },
   mounted() {
     this.initEditor();
   },
   methods: {
     /* 编辑器初始化 */
     initEditor() {
-      const { defaultOptions, options, value, language } = this;
+      const { defaultOptions, options, value, language, theme } = this;
       if (this.monacoEditor) this.monacoEditor.dispose();
-      const monacoOptions = Object.assign({}, options);
-      console.log(defaultOptions);
+      const monacoOptions = Object.assign(defaultOptions, options);
       this.monacoEditor = monaco.editor.create(this.$refs.code, {
         ...monacoOptions,
         value,
         language,
+        theme,
       });
 
       /* 对外抛出编辑器实例 */
-      this.$emit('onMounted', this.monacoEditor);
+      this.$emit('mounted', this.monacoEditor);
 
       /* 监听内容变化：对外抛出 input, change 事件 */
       this.monacoEditor.onDidChangeModelContent(() => {
@@ -151,6 +216,6 @@ export default {
 
 <style scoped>
 .monaco-code {
-  min-height: 300px;
+  min-height: 100px;
 }
 </style>

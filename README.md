@@ -2,6 +2,12 @@
 
 基于 `monaco-editor` Vue 版本编辑器
 
+### 在线示例
+
+请查看
+
+[monaco-code](https://winyh.github.io/monaco-code)
+
 ### 安装
 
 ```
@@ -25,11 +31,14 @@ cnpm i MonacoCode --save
 
 value, language 优先级更高，会覆盖 options 里相同字段
 
-| 参数     | 说明   | 类型   | 默认值                                     |
-| -------- | ------ | ------ | ------------------------------------------ |
-| value    | 初始值 | string |                                            |
-| language | 语言   | string | javascript \| json \| html 默认 javascript |
-| options  | 配置项 | object |                                            |
+| 参数     | 说明   | 类型   | 默认值                                       |
+| -------- | ------ | ------ | -------------------------------------------- |
+| value    | 初始值 | string |                                              |
+| language | 语言   | string | javascript \| json \| html 默认 `javascript` |
+| height   | 初始值 | string |                                              |
+| width    | 初始值 | string |                                              |
+| theme    | 主题   | string | vs \| vs-dark \| hc-black 默认 `vs`          |
+| options  | 配置项 | object |                                              |
 
 ### options 参数
 
@@ -38,6 +47,7 @@ value, language 优先级更高，会覆盖 options 里相同字段
 | theme                   | 主题                         | string  | vs \| vs-dark \| hc-black 默认 `vs`                     |
 | value                   | 默认显示值                   | string  |                                                         |
 | language                | 语言                         | string  | javascript \| json \| html 默认 `javascript`            |
+| fontSize                | 字体大小                     | number  | 14                                                      |
 | folding                 | 是否折叠                     | boolean | true                                                    |
 | foldingHighlight        | 折叠等高线                   | boolean | true                                                    |
 | foldingStrategy         | 折叠方式                     | string  | auto \| indentation 默认 `indentation`                  |
@@ -63,7 +73,7 @@ value, language 优先级更高，会覆盖 options 里相同字段
 
 | 方法          | 说明               | 参数            | 返回值                    | 备注 |
 | ------------- | ------------------ | --------------- | ------------------------- | ---- |
-| onMounted     | 编辑器创建完成后   | editor:instance | 编辑器实例                |      |
+| mounted       | 编辑器创建完成后   | editor:instance | 编辑器实例                |      |
 | setValue      | 设置初始值         | value:string    |                           |      |
 | setTheme      | 设置主题           | theme:string    | vs \| vs-dark \| hc-black |      |
 | getValue      | 获取编辑器值       |                 | value:string              |      |

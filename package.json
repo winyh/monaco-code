@@ -2,14 +2,14 @@
   "name": "monaco-code",
   "version": "0.0.01",
   "private": false,
-  "main": "dist/monaco-code.umd.min.js",
+  "main": "lib/monaco-code.umd.min.js",
   "module": "src/core/index.js",
-  "style": "dist/monaco-code.css",
+  "style": "lib/monaco-code.css",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --inline-vue src/core/index.js",
-    "pack": "npm run lib && npm pack",
+    "lib": "vue-cli-service build --target lib --inline-vue --dest lib src/core/index.js",
+    "pack": "npm run build && npm run lib && npm pack",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -48,7 +48,7 @@
     "type": "git",
     "url": "git+https://github.com/winyh/monaco-code.git"
   },
-  "homepage": "https://github.com/winyh/monaco-code#readme",
+  "homepage": "https://winyh.github.com/winyh/monaco-code",
   "eslintConfig": {
     "root": true,
     "env": {
