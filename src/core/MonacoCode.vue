@@ -5,38 +5,38 @@
 <script>
 import * as monaco from 'monaco-editor';
 
-import 'monaco-editor/esm/vs/editor/browser/controller/coreCommands';
-import 'monaco-editor/esm/vs/editor/contrib/find/findController.js';
+// import 'monaco-editor/esm/vs/editor/browser/controller/coreCommands';
+// import 'monaco-editor/esm/vs/editor/contrib/find/findController.js';
 
-// javascript依赖包，提供代码语法解析及代码高亮等功能
-import 'monaco-editor/esm/vs/language/css/monaco.contribution.js';
-import 'monaco-editor/esm/vs/language/html/monaco.contribution.js';
-import 'monaco-editor/esm/vs/language/json/monaco.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/javascript/javascript';
-import 'monaco-editor/esm/vs/basic-languages/css/css.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/sql/sql.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/html/html.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/less/less.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/mysql/mysql.contribution.js';
-import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution.js';
+// // javascript依赖包，提供代码语法解析及代码高亮等功能
+// import 'monaco-editor/esm/vs/language/css/monaco.contribution.js';
+// import 'monaco-editor/esm/vs/language/html/monaco.contribution.js';
+// import 'monaco-editor/esm/vs/language/json/monaco.contribution.js';
+// import 'monaco-editor/esm/vs/basic-languages/javascript/javascript';
+// import 'monaco-editor/esm/vs/basic-languages/css/css.contribution.js';
+// import 'monaco-editor/esm/vs/basic-languages/sql/sql.contribution.js';
+// import 'monaco-editor/esm/vs/basic-languages/html/html.contribution.js';
+// import 'monaco-editor/esm/vs/basic-languages/less/less.contribution.js';
+// import 'monaco-editor/esm/vs/basic-languages/mysql/mysql.contribution.js';
+// import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution.js';
 
-self.MonacoEnvironment = {
-  getWorkerUrl: function (moduleId, label) {
-    if (label === 'json') {
-      return './json.worker.js';
-    }
-    if (label === 'css' || label === 'scss' || label === 'less') {
-      return './css.worker.js';
-    }
-    if (label === 'html' || label === 'handlebars' || label === 'razor') {
-      return './html.worker.js';
-    }
-    if (label === 'typescript' || label === 'javascript') {
-      return './ts.worker.js';
-    }
-    return './editor.worker.js';
-  },
-};
+// self.MonacoEnvironment = {
+//   getWorkerUrl: function (moduleId, label) {
+//     if (label === 'json') {
+//       return './json.worker.js';
+//     }
+//     if (label === 'css' || label === 'scss' || label === 'less') {
+//       return './css.worker.js';
+//     }
+//     if (label === 'html' || label === 'handlebars' || label === 'razor') {
+//       return './html.worker.js';
+//     }
+//     if (label === 'typescript' || label === 'javascript') {
+//       return './ts.worker.js';
+//     }
+//     return './editor.worker.js';
+//   },
+// };
 
 export { monaco };
 export default {
@@ -45,7 +45,7 @@ export default {
     return {
       monacoEditor: '',
       defaultOptions: {
-        theme: 'vs-dark',
+        theme: 'vs',
         value: ['function x() {', '\tconsole.log("winyh!");', '}'].join('\n'),
         language: 'javascript',
         fontSize: 14,

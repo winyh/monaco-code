@@ -77,15 +77,15 @@ value, language 优先级更高，会覆盖 options 里相同字段
 
 可供外部调用的方法
 
-| 方法          | 说明               | 参数            | 返回值                    | 备注 |
-| ------------- | ------------------ | --------------- | ------------------------- | ---- |
-| mounted       | 编辑器创建完成后   | editor:instance | 编辑器实例                |      |
-| setValue      | 设置初始值         | value:string    |                           |      |
-| setTheme      | 设置主题           | theme:string    | vs \| vs-dark \| hc-black |      |
-| getValue      | 获取编辑器值       |                 | value:string              |      |
-| changeOptions | 修改编辑器配置     | options:object  |                           |      |
-| setLanguage   | 动态修改编辑器语言 | language:string |                           |      |
-| touchTrigger  | 主动触发编辑器事件 | action:string   |                           |      |
+| 方法          | 说明               | 参数            | 返回值                    | 备注     |
+| ------------- | ------------------ | --------------- | ------------------------- | -------- |
+| mounted       | 编辑器创建完成后   | editor:instance | 编辑器实例                |          |
+| setValue      | 设置初始值         | value:string    |                           | 暂不支持 |
+| setTheme      | 设置主题           | theme:string    | vs \| vs-dark \| hc-black | 暂不支持 |
+| getValue      | 获取编辑器值       |                 | value:string              | 暂不支持 |
+| changeOptions | 修改编辑器配置     | options:object  |                           |          |
+| setLanguage   | 动态修改编辑器语言 | language:string |                           | 暂不支持 |
+| touchTrigger  | 主动触发编辑器事件 | action:string   |                           | 暂不支持 |
 
 ### Vue 插件配置
 

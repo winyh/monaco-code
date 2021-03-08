@@ -2,7 +2,7 @@
   <div id="app">
     <h3 class="title">monaco-code 在线编辑器</h3>
     <div class="tool">
-      <select name="theme" id="" @change="selectChange">
+      <select name="theme" id="" @change="themeChange">
         <option value="vs" selected>vs</option>
         <option value="vs-dark">vs-dark</option>
         <option value="hc-black">hc-black</option>
@@ -19,17 +19,17 @@ export default {
   name: 'App',
   data() {
     return {
-      value: "const name = 'winyh'", // '{"name":"winyh"}'
+      value: "const name = 'monaco code'",
+      language: 'javascript',
     };
   },
   components: {
     MonacoCode,
   },
   methods: {
-    selectChange(e) {
+    themeChange(e) {
       const target = this.$refs.monaco;
       const theme = e.target.value;
-      console.log(target, theme);
       target.changeOptions({ theme });
     },
   },
@@ -46,5 +46,6 @@ export default {
 }
 
 #app .tool {
+  text-align: center;
 }
 </style>
