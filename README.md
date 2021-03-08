@@ -2,6 +2,12 @@
 
 基于 `monaco-editor` Vue 版本编辑器
 
+<div align="left">
+
+![](https://img.shields.io/github/issues/winyh/monaco-code) ![](https://img.shields.io/github/languages/code-size/winyh/monaco-code) ![](https://img.shields.io/github/stars/winyh/monaco-code) ![](https://img.shields.io/github/last-commit/winyh/monaco-code)
+
+</div>
+
 ### 在线示例
 
 请查看
